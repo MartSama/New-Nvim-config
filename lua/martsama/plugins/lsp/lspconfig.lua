@@ -147,14 +147,13 @@ return {
 					init_option = { jvm_args = {}, workspace = "/home/user/.cache/jdtls/workspace" },
 					root_dir = lspconfig.util.root_pattern("pom.xml", "build.gradle", ".git") or vim.fn.getcwd(),
 				})
-				vim.api.nvim_create_autocmd("BufWritePost", {
-					pattern = { "*.java" },
-					callback = function()
-						vim.cmd([[JdtlsOrganizeImports]])
-						vim.cmd([[JdtlsCompile]])
-					end,
-					desc = "Organize imports and compile on save for Java files",
-				})
+				-- vim.api.nvim_create_autocmd("BufWritePost", {
+				-- 	callback = function()
+				-- 		vim.cmd([[JdtlsOrganizeImports]])
+				-- 		vim.cmd([[JdtlsCompile]])
+				-- 	end,
+				-- 	desc = "Organize imports and compile on save for Java files",
+				-- })
 			end,
 		})
 	end,
